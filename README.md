@@ -62,7 +62,9 @@ Wait for it to finish. You'll see the prompt come back when it's done.
 
 ### 1. Download this folder
 
-Get the files onto your Mac. If you downloaded a zip, unzip it. Put the folder somewhere you won't accidentally move or delete it — for example, your home folder.
+[**Download the latest release here**](https://github.com/aleao-sl/watermarkr/releases/latest) — on that page, scroll down to the **Assets** section and click **Source code (zip)**.
+
+Once it downloads, unzip it and put the folder somewhere stable on your Mac (your home folder is a good spot) — somewhere you won't accidentally move or delete it.
 
 > ⚠️ Don't move the folder after setup. The helper remembers where you put it. If you do move it, just run the setup again from the new location.
 
