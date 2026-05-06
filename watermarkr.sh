@@ -1,4 +1,10 @@
 #!/bin/bash
+#
+# watermarkr — auto-watermark every screenshot on macOS
+# Author:  Augusto Leao  <https://github.com/aleao-sl>
+# Source:  https://github.com/aleao-sl/watermarkr
+# License: MIT (see LICENSE)
+#
 
 # Resolve the directory this script lives in so the config sits next to it
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"

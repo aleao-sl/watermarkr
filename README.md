@@ -2,6 +2,8 @@
 
 **A tiny helper that auto-watermarks every screenshot you take on your Mac.**
 
+_By [Augusto Leao](https://github.com/aleao-sl) — source: [github.com/aleao-sl/watermarkr](https://github.com/aleao-sl/watermarkr)_
+
 Have you ever shared a screenshot and wished it had your name on it — like a little signature in the corner? That's what this tool does, automatically. You take a screenshot the way you always do, and a tiny invisible helper adds your watermark to it. You don't have to remember anything, click anything, or open any app.
 
 ## What's a watermark?

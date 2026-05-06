@@ -1,4 +1,10 @@
 #!/bin/bash
+#
+# watermarkr — auto-watermark every screenshot on macOS
+# Author:  Augusto Leao  <https://github.com/aleao-sl>
+# Source:  https://github.com/aleao-sl/watermarkr
+# License: MIT (see LICENSE)
+#
 set -euo pipefail
 
 # Setup: verify dependencies, create/update config (interactive prompts),
