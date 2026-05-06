@@ -132,6 +132,44 @@ rm ~/Library/LaunchAgents/com.<your-username>.watermarkr.plist
 
 Then drag the project folder to the Trash. Done.
 
+## Is this safe? What does it actually do to my Mac?
+
+Short answer: yes. This tool does **not** modify any system files, does **not** install kernel extensions, and does **not** change anything in macOS itself. It runs entirely inside your own user account and never asks for an admin password.
+
+Here's exactly what gets added to your Mac, and where:
+
+### The two helpers (installed by Homebrew)
+
+- **fswatch** — a small open-source tool that watches folders for changes. Lives at `/opt/homebrew/bin/fswatch`. Source: [github.com/emcrisostomo/fswatch](https://github.com/emcrisostomo/fswatch)
+- **imagemagick** — a well-known open-source image toolkit, around since 1987 and used widely by photographers, websites, and developers. Source: [imagemagick.org](https://imagemagick.org)
+
+Both are installed by Homebrew into `/opt/homebrew/` (or `/usr/local/` on Intel Macs). They are general-purpose tools, not specific to this project — you might already have them for other reasons. You can uninstall them anytime with `brew uninstall fswatch imagemagick`.
+
+### The background helper (the LaunchAgent)
+
+A **LaunchAgent** is the standard, Apple-supported way for any Mac program to run quietly in the background. It's the same mechanism that Dropbox, 1Password, Slack and most Mac apps use. It's documented and supported by Apple — it is not a hack or a workaround.
+
+This tool installs **one** LaunchAgent file at:
+
+```
+~/Library/LaunchAgents/com.<your-username>.watermarkr.plist
+```
+
+That file lives in **your user folder** — not in any system directory. It simply tells macOS: "when this user logs in, run `watermarkr.sh`, and restart it if it crashes." That's the entire job.
+
+### What this tool does NOT do
+
+- It does not modify any system files (nothing in `/System` or any other system directory)
+- It does not require an admin password (no `sudo` is used or needed)
+- It does not connect to the internet
+- It does not collect or send any data anywhere
+- It does not access any files outside the folder you tell it to watch
+- It does not run as root or with elevated privileges
+
+### Removing everything
+
+To remove the LaunchAgent, see "Removing it completely" above. To also remove the dependencies, run `brew uninstall fswatch imagemagick` — your Mac will be exactly how it was before.
+
 ## If something doesn't work
 
 Don't worry — most problems are easy to fix.
@@ -187,3 +225,15 @@ Other files (PDFs, videos, documents) are left alone.
 | `MonaSans-LICENSE.txt` | License for the bundled Mona Sans font (SIL OFL 1.1) |
 
 You don't need to open or edit any of these by hand — `setup.sh` does everything for you.
+
+## Disclaimer
+
+This software is provided **"as is"**, without warranty of any kind, express or implied. Use of this tool is **at your own risk** and your **own responsibility**. The author is not liable for any data loss, file corruption, lost screenshots, or any other damages that may arise from using this software, however caused.
+
+A few things to keep in mind:
+
+- The tool modifies image files **in place** — the original screenshot is overwritten with the watermarked version. There is no automatic backup. If your screenshots are important to you, back them up separately.
+- The tool watches the folder you point it at and will watermark any image that appears there. If you store other people's images in that folder, they will also be watermarked.
+- The full source code is in this folder and is short enough to read in a few minutes. You are encouraged to review `setup.sh` and `watermarkr.sh` yourself before running them.
+
+By using this software, you agree to the terms of the [MIT License](LICENSE).
