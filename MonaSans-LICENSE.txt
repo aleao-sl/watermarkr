@@ -1,3 +1,9 @@
+Note: This is the SIL Open Font License (OFL) 1.1 covering the Mona Sans font
+bundled with watermarkr (https://github.com/aleao-sl/watermarkr).
+The text below is reproduced verbatim from the upstream Mona Sans repository.
+
+----------------------------------------
+
 Copyright 2022 The Mona Sans Project Authors (https://github.com/github/mona-sans), with Reserved Font Name "Mona"
 
 This Font Software is licensed under the SIL Open Font License, Version 1.1.

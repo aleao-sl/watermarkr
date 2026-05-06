@@ -1,3 +1,6 @@
+# watermarkr — https://github.com/aleao-sl/watermarkr
+# Files that should not be committed: per-user config, runtime artifacts, editor cruft.
+
 # Personal config — created by setup.sh on each user's machine
 watermarkr.conf
 watermarkr.conf_bk
