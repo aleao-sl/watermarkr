@@ -1,0 +1,13 @@
+# Personal config — created by setup.sh on each user's machine
+watermark.conf
+watermark.conf_bk
+
+# Generated LaunchAgent (label includes the user's username)
+com.*.watermark.plist
+
+# Runtime log
+watermark.log
+
+# Editor / tooling
+.claude/
+.DS_Store
