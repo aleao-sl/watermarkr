@@ -1,4 +1,6 @@
-# Screenshot Watermark
+# Watermarkr
+
+**A tiny helper that auto-watermarks every screenshot you take on your Mac.**
 
 Have you ever shared a screenshot and wished it had your name on it — like a little signature in the corner? That's what this tool does, automatically. You take a screenshot the way you always do, and a tiny invisible helper adds your watermark to it. You don't have to remember anything, click anything, or open any app.
 
@@ -108,7 +110,7 @@ It will show your current settings as the suggestions. Type new answers for the 
 If you want to **pause** the watermark helper temporarily, open Terminal and run:
 
 ```bash
-launchctl unload ~/Library/LaunchAgents/com.<your-username>.watermark.plist
+launchctl unload ~/Library/LaunchAgents/com.<your-username>.watermarkr.plist
 ```
 
 Replace `<your-username>` with your Mac username. (Not sure? Type `whoami` in Terminal — it'll tell you.)
@@ -116,7 +118,7 @@ Replace `<your-username>` with your Mac username. (Not sure? Type `whoami` in Te
 To **turn it back on**:
 
 ```bash
-launchctl load ~/Library/LaunchAgents/com.<your-username>.watermark.plist
+launchctl load ~/Library/LaunchAgents/com.<your-username>.watermarkr.plist
 ```
 
 ## Removing it completely
@@ -124,8 +126,8 @@ launchctl load ~/Library/LaunchAgents/com.<your-username>.watermark.plist
 If you ever want to uninstall:
 
 ```bash
-launchctl unload ~/Library/LaunchAgents/com.<your-username>.watermark.plist
-rm ~/Library/LaunchAgents/com.<your-username>.watermark.plist
+launchctl unload ~/Library/LaunchAgents/com.<your-username>.watermarkr.plist
+rm ~/Library/LaunchAgents/com.<your-username>.watermarkr.plist
 ```
 
 Then drag the project folder to the Trash. Done.
@@ -142,13 +144,13 @@ brew install fswatch imagemagick
 …and try `./setup.sh` again.
 
 **Watermark not appearing on screenshots**
-Open the log file (the path you set during setup, usually `watermark.log` in the project folder) and look at the last few lines. It usually says exactly what went wrong — for example, that it couldn't find your screenshots folder.
+Open the log file (the path you set during setup, usually `watermarkr.log` in the project folder) and look at the last few lines. It usually says exactly what went wrong — for example, that it couldn't find your screenshots folder.
 
 You can read the log live by running this in Terminal:
 ```bash
-tail -f /path/to/watermark/watermark.log
+tail -f /path/to/watermarkr/watermarkr.log
 ```
-(Replace `/path/to/watermark/` with where you put the folder.)
+(Replace `/path/to/watermarkr/` with where you put the folder.)
 
 **"setup has not been run yet"**
 Run `./setup.sh` from the project folder.
@@ -176,11 +178,11 @@ Other files (PDFs, videos, documents) are left alone.
 | File | What it's for |
 |------|---------------|
 | `setup.sh` | The setup wizard you run once |
-| `watermark.sh` | The actual helper that watches your folder |
-| `watermark.conf` | Your saved settings (gets created during setup) |
+| `watermarkr.sh` | The actual helper that watches your folder |
+| `watermarkr.conf` | Your saved settings (gets created during setup) |
 | `MonaSans-Regular.ttf` | The font for the watermark text |
-| `watermark.log` | The diary of what the helper has done (gets created automatically) |
-| `watermark.conf.example` | A reference showing what a config file looks like |
+| `watermarkr.log` | The diary of what the helper has done (gets created automatically) |
+| `watermarkr.conf.example` | A reference showing what a config file looks like |
 | `LICENSE` | Project license (MIT) |
 | `MonaSans-LICENSE.txt` | License for the bundled Mona Sans font (SIL OFL 1.1) |
 

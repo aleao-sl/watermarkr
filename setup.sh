@@ -5,9 +5,9 @@ set -euo pipefail
 # generate the LaunchAgent plist, and install it to ~/Library/LaunchAgents.
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-CONFIG="$SCRIPT_DIR/watermark.conf"
-CONFIG_bk="$SCRIPT_DIR/watermark.conf_bk"
-WATERMARK_SH="$SCRIPT_DIR/watermark.sh"
+CONFIG="$SCRIPT_DIR/watermarkr.conf"
+CONFIG_bk="$SCRIPT_DIR/watermarkr.conf_bk"
+WATERMARK_SH="$SCRIPT_DIR/watermarkr.sh"
 # Sanitize $(whoami) for use in a reverse-DNS LaunchAgent label:
 # keep ASCII letters/digits only, lowercase, cap at 32 chars, fall back to
 # "user" if nothing usable remains. macOS usernames are already constrained,
@@ -15,7 +15,7 @@ WATERMARK_SH="$SCRIPT_DIR/watermark.sh"
 USER_RAW="$(whoami)"
 USER_SAFE="$(printf '%s' "$USER_RAW" | LC_ALL=C tr -cd 'A-Za-z0-9' | tr '[:upper:]' '[:lower:]' | cut -c1-32)"
 USER_SAFE="${USER_SAFE:-user}"
-LABEL="com.$USER_SAFE.watermark"
+LABEL="com.$USER_SAFE.watermarkr"
 PLIST_NAME="$LABEL.plist"
 PLIST_SRC="$SCRIPT_DIR/$PLIST_NAME"
 PLIST_DEST="$HOME/Library/LaunchAgents/$PLIST_NAME"
@@ -40,7 +40,7 @@ DEFAULT_WATERMARK_TEXT="© $(id -F 2>/dev/null || whoami)"
 # Desktop (the system default when no override is set)
 DEFAULT_WATCH_DIR="$(defaults read com.apple.screencapture location 2>/dev/null || echo "$HOME/Desktop")"
 DEFAULT_WATCH_DIR="${DEFAULT_WATCH_DIR/#\~/$HOME}"
-DEFAULT_LOG="$SCRIPT_DIR/watermark.log"
+DEFAULT_LOG="$SCRIPT_DIR/watermarkr.log"
 
 # Prefer the bundled font, otherwise fall back to a system font that always exists
 if [[ -f "$SCRIPT_DIR/MonaSans-Regular.ttf" ]]; then
@@ -78,7 +78,7 @@ if [[ ! -f "$FONT" ]]; then
 fi
 
 cat > "$CONFIG" <<EOF
-# watermark configuration
+# Watermarkr configuration
 
 WATERMARK_TEXT="$WATERMARK_TEXT"
 WATCH_DIR="$WATCH_DIR"

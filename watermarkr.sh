@@ -2,7 +2,7 @@
 
 # Resolve the directory this script lives in so the config sits next to it
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-CONFIG="$SCRIPT_DIR/watermark.conf"
+CONFIG="$SCRIPT_DIR/watermarkr.conf"
 
 if [[ ! -f "$CONFIG" ]]; then
   echo "Error: setup has not been run yet (missing $CONFIG)." >&2
@@ -14,7 +14,7 @@ fi
 source "$CONFIG"
 
 # Directory used for atomic per-file locks (mkdir is atomic, prevents double-processing)
-LOCK_DIR="/tmp/watermark_locks"
+LOCK_DIR="/tmp/watermarkr_locks"
 mkdir -p "$LOCK_DIR"
 
 log() {
