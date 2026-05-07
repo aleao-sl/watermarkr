@@ -1,7 +1,7 @@
 # Watermarkr
+![header-readme-md.png](header-readme-md.png)
 
-**A tiny helper that auto-watermarks every screenshot you take on your Mac.**
-
+### **A tiny helper that auto-watermarks every screenshot you take on your Mac.**
 _By [Augusto Leao](https://github.com/aleao-sl) — source: [github.com/aleao-sl/watermarkr](https://github.com/aleao-sl/watermarkr)_
 
 Have you ever shared a screenshot and wished it had your name on it — like a little signature in the corner? That's what this tool does, automatically. You take a screenshot the way you always do, and a tiny invisible helper adds your watermark to it. You don't have to remember anything, click anything, or open any app.
@@ -186,7 +186,7 @@ brew install fswatch imagemagick
 …and try `./setup.sh` again.
 
 **Watermark not appearing on screenshots**
-Open the log file (the path you set during setup, usually `watermarkr.log` in the project folder) and look at the last few lines. It usually says exactly what went wrong — for example, that it couldn't find your screenshots folder.
+Open the log file (the path you set during setup, usually `watermarkr.log` in the project folder) and look at the last few lines. It usually says exactly what went wrong — for example, that it couldn't find your screenshots' folder.
 
 You can read the log live by running this in Terminal:
 ```bash
